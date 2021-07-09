@@ -1,0 +1,11 @@
+%%
+clc, clear, close all;
+
+%%
+
+x = 0:0.1:10;
+y1 = x;
+y2 = exp(x);
+
+%%
+plot(x,y1,x,);
