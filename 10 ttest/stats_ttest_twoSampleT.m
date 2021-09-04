@@ -22,9 +22,9 @@ mu1 = 1;   % population mean in dataset 1
 mu2 = 1.2; % population mean in dataset 2
 
 
-% generate the data
-data1 = mu1 + randn(n1,1);
-data2 = mu2 + randn(n2,1);
+% generate the data ('/10' for reduse variance)
+data1 = mu1 + randn(n1,1)/10;
+data2 = mu2 + randn(n2,1)/10;
 
 % show their histograms
 figure(1), clf, hold on
@@ -35,7 +35,7 @@ legend({'Data 1';'Data 2'})
 
 %% now for the t-test
 
-[h,p,ci,stats] = ttest2(data1,data2,'tail','right','vartype','equa');
+[h,p,ci,stats] = ttest2(data1,data2,'tail','both','vartype','equal');
 
 title([ 't(' num2str(stats.df) ') = ' num2str(stats.tstat) ', p=' num2str(p) ])
 
