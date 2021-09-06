@@ -28,7 +28,7 @@ for i=1:N
 end
 
 plot(data1,1:N,'ks','markerfacecolor','k','markersize',10)
-plot(data2,1:N,'ro','markerfacecolor','r','markersize',10)
+plot(data2,1:N,'ro','markerfacecolor','r','markersize',5)
 
 set(gca,'ylim',[0 N+1],'xlim',[-.5 max([data1;data2])+.5],'xtick',0:5)
 ylabel('Data index'), xlabel('Data value')
@@ -82,7 +82,7 @@ pvals( pvals<-log(pvalthresh) ) = NaN;
 
 % now show in a heatmap!
 figure(2), clf
-imagesc(lambdas,Ns,pvals)
+imagesc(lambdas - lambdas(1),Ns,pvals)
 xlabel('lambda difference')
 ylabel('Sample size')
 title('Signed-rank test results: -log(p)')
