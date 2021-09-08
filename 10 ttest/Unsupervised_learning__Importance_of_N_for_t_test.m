@@ -24,7 +24,7 @@ for i=1:1:size(N,2)
     df = (2*N(i))-2;
     tval_thresh(i) = tinv(1-pval_thresh, df);
 end
-
-plot(N, tstats, 'color', [0, 0, 0, 0.05]),hold on;
+%%
+plot(N, tstats, 'color', [0.8, 0.8, 0.8]),hold on;
 plot(N, mean(tstats, 1), 'color', 'black', 'linew', 2),hold on;
 plot(N, tval_thresh, 'color', 'r', 'linew', 2),xlabel('Sample size'),ylabel('T-test value'),hold off;
