@@ -11,7 +11,7 @@
 %%
 
 % a clear MATLAB workspace is a clear mental workspace
-close all; clear
+close all; clear; clc;
 
 %% generate the data
 
@@ -32,7 +32,10 @@ xlabel('Data group'), ylabel('Data value')
 %% now for the test
 
 % ooops!
-[p,h,stats] = signrank(data1,data2)
+% [p,h,stats] = signrank(data1,data2)
+% Error using signrank
+% SIGNRANK requires the data vectors to have the same number of elements.
+% signed rank test only for paired test ( size(data1) == size(data2) )
 
 % the right one...
 [p,h,stats] = ranksum(data1,data2)
