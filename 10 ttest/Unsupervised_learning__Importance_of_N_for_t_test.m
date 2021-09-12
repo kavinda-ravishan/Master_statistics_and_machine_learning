@@ -22,7 +22,7 @@ end
 
 for i=1:1:size(N,2)
     df = (2*N(i))-2;
-    tval_thresh(i) = tinv(1-pval_thresh, df);
+    tval_thresh(i) = tinv((1-pval_thresh), df);
 end
 %%
 plot(N, tstats, 'color', [0.8, 0.8, 0.8]),hold on;
