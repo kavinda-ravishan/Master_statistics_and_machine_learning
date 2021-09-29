@@ -86,7 +86,8 @@ plot(1:N,sort(fz),'o','markerfacecolor','w','markersize',7)
 box off
 set(gca,'xlim',[-5 N+5],'XTickLabel',[],'ylim',[-1 1]*5.5)
 ylabel('Value')
-legend('Correlation','Fisher-Z','box','off')
+legend('Correlation','Fisher-Z')
+box off;
 
 % zoom in
 % set(gca,'ylim',[-1 1]*.8)
