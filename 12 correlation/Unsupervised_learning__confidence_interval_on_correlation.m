@@ -17,7 +17,7 @@ corrs = zeros(numboots, 1);
 
 for i=1:numboots
     
-    sample = randi(N, samplesize, 1);
+    sample = randperm(N, samplesize);
     x1 = x(sample);
     y1 = y(sample);
 
@@ -28,7 +28,7 @@ corrub = prctile(corrs,(100-confidence)/2);
 corrlb = prctile(corrs,100-(100-confidence)/2);
 
 hist(corrs, 10);
-title([num2str(corrub) ' : ' num2str(corrlb)])
+title(['r = ' num2str(r) ', ' num2str(corrub) ' : ' num2str(corrlb)])
 
 
 
