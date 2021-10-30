@@ -38,15 +38,17 @@ data3 = mean3 + randn(N,1)*stdev;
 tabl = table(data1,data2,data3,'VariableNames',{'qwerty';'DrX';'purple'});
 
 % specify that all variables are in the same group
+% labels for model(we can use same labels ['qwerty';'DrX';'purple'] if we want)
 repeatedFactor = table(["a";"b";"c"],'VariableNames',{'levels'});
 
 
 % create a model to be fit
+% qwerty-purple ~ 1 : (qwerty-purple) qwerty to purple
+% ['qwerty';'DrX';'purple'], ( ~ 1) model as intercept.
 rm = fitrm(tabl,'qwerty-purple ~ 1','WithinDesign',repeatedFactor);
 
 % now fit the model
 ranova_table = ranova(rm,'WithinModel','levels')
-
 
 %% example from SPSS website
 
