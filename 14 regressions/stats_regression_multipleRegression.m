@@ -65,20 +65,21 @@ ylabel('Model residuals')
 %% using fitlm
 
 % with explicit intercept
-lm1 = fitlm(desmat,exam_scores,'VarNames',{'Intercept','Ave sleep','Study hours','Interaction','Exam scores'})
+% lm1 = fitlm(desmat,exam_scores,'VarNames',{'Intercept','Ave sleep','Study hours','Interaction','Exam scores'});
 
 % without intercept
 % lm2 = fitlm(desmat(:,2:end),exam_scores,'VarNames',{'Ave sleep','Studyhours','Interaction','Exam scores'});
 
 % without interaction term
-lm3 = fitlm(desmat(:,2:3),exam_scores,'VarNames',{'Ave sleep','Study hours','Exam scores'});
+% lm3 = fitlm(desmat(:,2:3),exam_scores,'VarNames',{'Ave sleep','Study hours','Exam scores'});
 
 % specify the model
+% 'exam ~ sleep*study' -> 'exam ~ sleep + study + sleep*study'
 lm4 = fitlm(desmat(:,2:3),exam_scores,'exam ~ sleep*study',...
     'VarNames',{'sleep','study','exam'});
 
 %% correlation of IVs
 
 corr(desmat(:,2:end))
-
+% There is strong correlation between 2nd and 3rd IVs (study hours, Interaction)
 %% done.
