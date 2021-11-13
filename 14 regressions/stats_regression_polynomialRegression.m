@@ -29,7 +29,7 @@ legend({'Quadratic','Cubic'})
 %% now for a polynomial fit
 
 % for y1
-pterms = polyfit(x,y1,2);
+pterms = polyfit(x,y1,2); % returns a, b, c : ax^2 + bx + c
 yHat1 = polyval(pterms,x);
 plot(x,yHat1,'r','linew',2)
 
@@ -83,7 +83,7 @@ legend({'$y_1 = x^2$';'$y_2 = x^3$'},'Interpreter','latex')
 % compute the Bayes Information Criterion
 bic = n*log(sse) + orders*log(n);
 subplot(212)
-plot(orders,bic,'s-','linew',2,'markerfacecolor','w','markersize',12)
+plot(orders,bic,'s-','linew',2,'markerfacecolor','w','markersize',12), hold on;
 set(gca,'xlim',[orders(1)-.5 orders(end)+.5],'xtick',orders)
 xlabel('Polynomial model order')
 ylabel('BIC')
