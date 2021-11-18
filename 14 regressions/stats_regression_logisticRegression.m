@@ -51,11 +51,16 @@ legend({'Study';'Sleep'})
 %% now run the logistic regression
 
 % model specification
+% study*sleep - study:sleep -> study + sleep + study:sleep - study:sleep
+% study*sleep - study:sleep -> study + sleep (remove the interaction term)
 modelspec = 'exam ~ study*sleep - study:sleep';
+% or
+% modelspec = 'exam ~ study + sleep';
 
 % convert to a MATLAB table
 D = array2table(data,'VariableNames',{'exam';'study';'sleep'});
 
+% df = N-k = 20-3 = 17
 % here's the fitting (binomial is for logistic regression)
 mdl = fitglm(D,modelspec,'Distribution','binomial')
 
